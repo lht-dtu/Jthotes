@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link 
+			rel="stylesheet" 
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+		/>
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+
+    <link 
+        rel = "stylesheet"
+        href = "{{url_for('static', filename= 'base.css')}}"
+    >
+
+    {% block base_head %}
+    {% endblock %}
+</head>
+<body style = "
+    background-image: url(../static/image/446984.webp);
+    background-size: cover;
+    text-align: center;
+    "
+>
+    <div class = "container-fluid">
+        <nav 
+            class="navbar navbar-expand-sm bg-light sticky-top" 
+            style = "
+                border-bottom-left-radius: 10px; 
+                border-bottom-right-radius: 10px;
+            "
+        >
+            <a class ="navbar-brand text-xl-center" style = "font-size: 1.6rem;"> <b style = "font-size: 1.71rem;">Jth</b>otes </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar"> <span class="navbar-toggler-icon"></span> </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbar">
+                {% if user %}
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <button class="btn btn-outline-dark text-lg-right btn-block" href="/">
+                            <i class="fa fa-home"></i>&nbsp;
+                        </button>
+                    </li>
+                </ul>
+                {% endif %}
+            </div>
+        </nav>
+    </div>
+    <script
+        src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"
+    ></script>
+
+    <script
+        src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"
+    ></script>
+    <div class = "container" id= "contents"
+        style = "
+            background-color: white; 
+            border-bottom-left-radius: 10px; 
+            border-bottom-right-radius: 10px;
+            width: 88%;
+        "
+    >
+        {% block base_body %}{% endblock %}
+    </div>
+</body>
+</html>
